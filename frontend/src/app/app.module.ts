@@ -8,6 +8,8 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { StarComponent } from './components/partials/star/star.component';
 import { SearchComponent } from './components/partials/search/search.component';
 import { DetailsComponent } from './components/pages/details/details.component';
+import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
+import { TitleComponent } from './components/partials/title/title.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { DetailsComponent } from './components/pages/details/details.component';
     HomeComponent,
     StarComponent,
     SearchComponent,
-    DetailsComponent
+    DetailsComponent,
+    CartPageComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,

@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
 import { StarComponent } from './components/partials/star/star.component';
 import { DetailsComponent } from './components/pages/details/details.component';
+import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: '', component: StarComponent },
   { path: 'search/:searchTerm', component: HomeComponent },
-  { path: 'bake/:id', component: DetailsComponent } 
+  { path: 'bake/:id', component: DetailsComponent },
+  { path: 'cart-page', component: CartPageComponent}
 ];
 
 @NgModule({
