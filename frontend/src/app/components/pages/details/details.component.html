@@ -1,0 +1,30 @@
+<div class="container">
+    <img [src]="bake.imageUrl" [alt]="bake.name" />
+
+    <div class="detail">
+        <div class="header">
+            <span class="name">
+          {{bake.name}}
+        </span>
+            <span class="favorite {{bake.favorite? '': 'not'}}">❤</span>
+        </div>
+        <div class="desc">
+            <span *ngFor="let desc of bake.desc">
+          {{desc}}
+        </span>
+        </div>
+        <div class="tags">
+            <a *ngFor="let tag of bake.tags" routerLink="/tag/{{tag}}">
+          {{tag}}
+        </a>
+        </div>
+        <div class="bake-time">
+            <span>Bake Time is About <strong>{{bake.bakeTime}}</strong>
+        </span>
+        </div>
+        <div class="price">
+            <span>{{bake.price | currency : 'NGN'}}</span>
+        </div>
+        <button>Add To Cart</button>
+    </div>
+</div>

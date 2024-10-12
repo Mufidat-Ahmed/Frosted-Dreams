@@ -16,4 +16,8 @@ export class BakeService {
   getAllBakesBySearchTerm(bakeTerm:string){
     return this.getAll().filter(bake => bake.name.toLowerCase().includes(bakeTerm.toLowerCase()));
   }
+
+  getBakeById(bakeId:string):Info{
+    return this.getAll().find(bake => bake.id === bakeId) ?? new Info();
+  }
 }
