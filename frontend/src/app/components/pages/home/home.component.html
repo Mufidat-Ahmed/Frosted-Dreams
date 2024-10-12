@@ -1,0 +1,33 @@
+<ul>
+    <li *ngFor="let bake of baked">
+        <a routerLink="/bake/{{bake.id}}">
+            <img [src]="bake.imageUrl" [alt]="bake.name" />
+            <div class="content">
+                <div class="name">{{bake.name}}
+                </div>
+                <span class="favorite {{bake.favorite ? 'favorite' : 'not'}}">❤
+        </span>
+                <!-------
+                <div class="stars">
+                    <star [stars]="bake.stars" />
+                </div>
+        ------>
+                <div class="product-item-footer">
+                    <div class="desc">
+                        <span *ngFor="let desc of bake.desc">
+              {{desc}}
+            </span>
+                    </div>
+
+                    <div class="bake-time">
+                        <span>🕒</span> {{bake.bakeTime}}
+                    </div>
+                </div>
+
+                <div class="price">
+                    <span> {{bake.price | currency : 'NGN'}} </span>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
