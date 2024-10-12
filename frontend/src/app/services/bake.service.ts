@@ -12,4 +12,8 @@ export class BakeService {
   getAll():Info[]{
     return Data;
   }
+
+  getAllBakesBySearchTerm(bakeTerm:string){
+    return this.getAll().filter(bake => bake.name.toLowerCase().includes(bakeTerm.toLowerCase()));
+  }
 }

@@ -5,7 +5,8 @@ import { StarComponent } from './components/partials/star/star.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: '', component: StarComponent }
+  { path: '', component: StarComponent },
+  { path: 'search/:searchTerm', component: HomeComponent },
 ];
 
 @NgModule({
