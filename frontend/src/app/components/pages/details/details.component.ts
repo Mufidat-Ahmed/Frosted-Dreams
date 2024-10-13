@@ -16,7 +16,9 @@ export class DetailsComponent implements OnInit {
     private cartService:CartService, private router:Router) {
     activatedRoute.params.subscribe((params) => {
       if (params.id)
-        this.bake = bakeService.getBakeById(params.id);
+        bakeService.getBakeById(params.id).subscribe((bite) => {
+          this.bake = bite;
+      });
     })
    }
 
