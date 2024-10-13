@@ -67,3 +67,20 @@ export const Data: any[] = [
     tags: ['FastFood', 'Snack', 'Lunch'],
   },
 ];
+
+export const userData: any[] = [
+  {
+    name: "Jane Doe",
+    email: "jane@gamil.com",
+    password: "12345",
+    address: "Abuja",
+    isAdmin: true,
+  },
+  {
+    name: "John Doe",
+    email: "john@gmail.com",
+    password: "12345",
+    address: "Lagos",
+    isAdmin: false,
+    }
+  ];
