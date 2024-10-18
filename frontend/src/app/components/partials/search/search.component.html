@@ -1,4 +1,26 @@
 <div>
-    <input #s type="text" placeholder="Search Frosted Dreams" (keyup.enter)="search(s.value)" [value]="searchTerm" />
-    <button (click)="search(s.value)">Search</button>
+    <input [(ngModel)]="searchTerm" type="text" placeholder="Search Frosted Dreams" (keyup.enter)="search(searchTerm)" />
+    <button (click)="search(searchTerm)">Search</button>
+</div>
+
+<!-- Display search results -->
+<div *ngIf="baked.length > 0;">
+    <ul>
+        <li *ngFor="let bake of baked">
+            <a routerLink="/bake/{{bake.id}}">
+                <img [src]="bake.imageUrl" [alt]="bake.name" />
+                <div class="content">
+                    <div class="name">{{bake.name}}</div>
+                    <span class="favorite {{bake.favorite ? 'favorite' : 'not'}}">❤</span>
+                    <div class="product-item-footer">
+                        <div class="desc">
+                            <span *ngFor="let desc of bake.desc">{{desc}}</span>
+                        </div>
+                        <div class="bake-time"><span>🕒</span> {{bake.bakeTime}}</div>
+                    </div>
+                    <div class="price">{{bake.price | currency : 'NGN'}}</div>
+                </div>
+            </a>
+        </li>
+    </ul>
 </div>

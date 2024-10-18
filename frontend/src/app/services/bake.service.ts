@@ -16,10 +16,12 @@ export class BakeService {
     return this.http.get<Info[]>(DATA_URL);
   }
 
-  getAllBakesBySearchTerm(bakeTerm:string){
-    return this.http.get<Info[]>(SEARCH_URL + bakeTerm);
-  }
+ 
 
+  getAllBakesBySearchTerm(searchTerm: string): Observable<Info[]> {
+    console.log(`Fetching results for: ${searchTerm}`);
+    return this.http.get<Info[]>(SEARCH_URL(searchTerm)); 
+  }
   getBakeById(bakeId:string):Observable<Info>{
     return this.http.get<Info>(BAKE_BY_ID_URL + bakeId);
   }
