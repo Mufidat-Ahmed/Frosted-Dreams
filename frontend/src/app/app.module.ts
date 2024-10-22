@@ -15,6 +15,7 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ToastrModule } from 'ngx-toastr';
     DetailsComponent,
     CartPageComponent,
     TitleComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,

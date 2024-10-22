@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="details">
+        <app-title title="Register"></app-title>
+        <form [formGroup]="registerForm" (ngSubmit)="submit()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" formControlName="name" type="text" class="form-control" />
+                <div *ngIf="fc.name.invalid && (fc.name.dirty || fc.name.touched || isSubmitted)">
+                    <div *ngIf="fc.name.errors?.required">Name is required.</div>
+                    <div *ngIf="fc.name.errors?.minlength">Name must be at least 5 characters long.</div>
+                </div>
+                <label for="email">Email</label>
+                <input id="email" formControlName="email" type="text" class="form-control" />
+                <div *ngIf="fc.email.invalid && (fc.email.dirty || fc.email.touched || isSubmitted)">
+                    <div *ngIf="fc.email.errors?.required">Email is required.</div>
+                </div>
+                <label for="password">Password</label>
+                <input id="password" formControlName="password" type="text" class="form-control" />
+                <div *ngIf="fc.password.invalid && (fc.password.dirty || fc.password.touched || isSubmitted)">
+                    <div *ngIf="fc.password.errors?.required">Password is required.</div>
+                    <div *ngIf="fc.password.errors?.minlength">Password must be at least 10 characters long.</div>
+                </div>
+
+                <label for="confirmPassword">ConfirmPassword</label>
+                <input id="name" formControlName="confirmPassword" type="text" class="form-control" />
+                <div *ngIf="fc.name.invalid && (fc.name.dirty || fc.name.touched || isSubmitted)">
+                    <div *ngIf="fc.confirmPassword.errors?.required">Password is required.</div>
+                    <div *ngIf="fc.confirmPassword.errors?.minlength">Confirmed Password must match.</div>
+                </div>
+            </div>
+            <!-- Close form-group div -->
+
+            <label for="address">Address</label>
+            <input id="address" formControlName="address" type="text" class="form-control" />
+
+            <button type="submit" class="btn btn-primary">Register</button>
+
+            <div class="login">
+                Already a User? &nbsp;
+                <a routerLink="/login" [queryParams]="{returnUrl: returnUrl}">
+                    Login
+                </a>
+            </div>
+
+        </form>
+        <!-- Move form closing tag here -->
+    </div>
+</div>

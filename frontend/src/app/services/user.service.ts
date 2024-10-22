@@ -3,9 +3,11 @@ import { User } from '../shared/models/User';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { IUserLogin } from '../shared/models/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { LOGIN_URL } from '../shared/models/urls';
+import { LOGIN_URL, REGISTER_URL } from '../shared/models/urls';
 import { ToastrService } from 'ngx-toastr';
 import { Router, Route } from '@angular/router';
+import { IURegister } from '../shared/models/interfaces/IURegister';
+import { error } from 'console';
 
 const USER_KEY = 'User';
 @Injectable({
@@ -35,6 +37,23 @@ export class UserService {
       })
     );
    }
+
+   register(userRegister:IURegister): Observable<User>{
+    return this.http.post<User>(REGISTER_URL, userRegister).pipe(
+      tap({
+        next: (user) => {
+          this.setUserToLocalStorage(user);
+          this.userSubject.next(user);
+          this.toastrService.success(`Welcome to Frosted Dreams ${user.name}`, 
+            'Register Successful')
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error, 'Register Failed')
+        }
+      })
+    )
+   }
+
    private setUserToLocalStorage(user:User){
     localStorage.setItem(USER_KEY, JSON.stringify(user));
    }

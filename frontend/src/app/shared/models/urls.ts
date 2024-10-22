@@ -7,3 +7,4 @@ export const BAKE_BY_ID_URL = DATA_URL + '/';
 
 
 export const LOGIN_URL = BASE_URL + '/api/users/login';
+export const REGISTER_URL = BASE_URL + '/api/users/register';
