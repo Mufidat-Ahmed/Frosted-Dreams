@@ -22,14 +22,15 @@ export class HeaderComponent  implements OnInit {
    }
 
   ngOnInit(): void {
+    
   }
 
   logout() {
     this.userService.logout();
    }
 
-   get isAuth(){
-    return this.user.token;
+   get isAuth(): boolean{
+    return !!this.user?.token;
    }
 
 }
