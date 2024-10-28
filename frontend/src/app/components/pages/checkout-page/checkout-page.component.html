@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="content">
+        <app-title title="Order Page" fontSize="2rem"></app-title>
+        <form [formGroup]="checkoutForm">
+            <inputs label="Name">
+                <input type="name" placeholder="Name" formControlName="name" />
+            </inputs>
+            <inputs label="address">
+                <input type="address" placeholder="Address" formControlName="address" />
+            </inputs>
+        </form>
+    </div>
+</div>

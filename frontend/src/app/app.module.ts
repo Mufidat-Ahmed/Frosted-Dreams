@@ -18,6 +18,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { InputsComponent } from './components/partials/inputs/inputs.component';
 import { CustomButtonComponent } from './components/partials/custom-button/custom-button.component';
+import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CustomButtonComponent } from './components/partials/custom-button/custo
     LoginPageComponent,
     RegisterPageComponent,
     InputsComponent,
-    CustomButtonComponent
+    CustomButtonComponent,
+    CheckoutPageComponent
   ],
   imports: [
     BrowserModule,
