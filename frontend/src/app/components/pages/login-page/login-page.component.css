@@ -16,6 +16,12 @@ form {
     justify-content: center;
 }
 
+input {
+    border: none;
+    color: #f5a623;
+    width: 50%;
+}
+
 .register {
     display: flex;
     justify-content: center;

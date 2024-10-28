@@ -3,5 +3,4 @@ export interface IURegister{
   email: string;
   password: string;
   confirmPassword: string;
-  address: string;
 }

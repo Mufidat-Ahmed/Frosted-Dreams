@@ -39,6 +39,7 @@ export class UserService {
    }
 
    register(userRegister:IURegister): Observable<User>{
+    console.log('Registering user:', userRegister); 
     return this.http.post<User>(REGISTER_URL, userRegister).pipe(
       tap({
         next: (user) => {

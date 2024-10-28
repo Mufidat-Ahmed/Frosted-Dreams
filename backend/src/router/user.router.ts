@@ -21,9 +21,9 @@ router.get('/seed', asyncHandler(async (req, res) => {
 router.post("/login", asyncHandler(async(req, res) =>{
   const body = req.body;
   const {email, password} = req.body;
-  const user = await UserModel.findOne({email, password});
+  const user = await UserModel.findOne({ email });
 
-    if(user){
+    if(user && await bcrypt.compare(password, user.password)){
       res.send(gtResponse(user));
     }else{
       res.status(400).send("User name or password is incorrect");
@@ -46,7 +46,6 @@ router.post('/register', asyncHandler(async (req, res) => {
     name,
     email:email.toLowerCase(),
     password: encryptPassword,
-    address: '', // Add a default or appropriate value for address
     isAdmin: false
   }
 
@@ -61,6 +60,7 @@ const gtResponse = (user: any) => {
     isAdmin: user.isAdmin
   }, "secret", { expiresIn: "30d" });
 
+  user.password = undefined;
   user.token = token;
   return user;
 }
