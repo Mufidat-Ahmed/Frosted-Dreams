@@ -5,9 +5,19 @@
             <inputs label="Name">
                 <input type="name" placeholder="Name" formControlName="name" />
             </inputs>
-            <inputs label="address">
+            <inputs label="Address">
                 <input type="address" placeholder="Address" formControlName="address" />
             </inputs>
+            <inputs label="Phone Number">
+                <input type="phone" placeholder="Phone Number" formControlName="phone" />
+            </inputs>
         </form>
+        <order-lists [order]="order"></order-lists>
+
+        <div class="button-container">
+            <div class="button">
+                <button (click)="createOrder()">Proceed To Payment</button>
+            </div>
+        </div>
     </div>
 </div>

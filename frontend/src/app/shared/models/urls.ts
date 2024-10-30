@@ -8,3 +8,6 @@ export const BAKE_BY_ID_URL = DATA_URL + '/';
 
 export const LOGIN_URL = BASE_URL + '/api/users/login';
 export const REGISTER_URL = BASE_URL + '/api/users/register';
+
+export const ORDER_URL = BASE_URL + '/api/orders';
+export const ORDER_CREATE_URL = ORDER_URL + '/create';

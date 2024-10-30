@@ -8,6 +8,8 @@ import cors from 'cors';
 import dataRouter  from './router/data.router';
 import userRouter from './router/user.router';
 import { dbConnect } from './config/db.config';
+import orderRouter from './router/order.router';
+
 dbConnect();
 
 const app = express();
@@ -19,6 +21,7 @@ app.use(cors({
 
 app.use("/api/data", dataRouter)
 app.use("/api/users", userRouter)
+app.use("/api/orders", orderRouter)
 
 const port = 5000;
 app.listen(port, () => {

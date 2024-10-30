@@ -10,7 +10,7 @@ import { SearchComponent } from './components/partials/search/search.component';
 import { DetailsComponent } from './components/pages/details/details.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 import { TitleComponent } from './components/partials/title/title.component';
-import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +19,8 @@ import { RegisterPageComponent } from './components/pages/register-page/register
 import { InputsComponent } from './components/partials/inputs/inputs.component';
 import { CustomButtonComponent } from './components/partials/custom-button/custom-button.component';
 import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
+import { OrderListsComponent } from './components/partials/order-lists/order-lists.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { CheckoutPageComponent } from './components/pages/checkout-page/checkout
     RegisterPageComponent,
     InputsComponent,
     CustomButtonComponent,
-    CheckoutPageComponent
+    CheckoutPageComponent,
+    OrderListsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { CheckoutPageComponent } from './components/pages/checkout-page/checkout
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]
 })

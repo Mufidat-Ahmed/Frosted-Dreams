@@ -1,0 +1,35 @@
+<table>
+    <tr>
+        <td colspan="5">
+            <h3>Order Items:</h3>
+        </td>
+    </tr>
+    <tr *ngFor="let item of order.items">
+        <td>
+            <a routerLink="/bake/{{item.bake.id}}">
+                <img [src]="item.bake.imageUrl" alt="Bake Image" />
+            </a>
+        </td>
+        <td>
+            {{item.bake.name}}
+        </td>
+        <td>
+            {{item.bake.price | currency : 'NGN'}}
+        </td>
+        <td>
+            {{item.quantity}}
+        </td>
+        <td>
+            {{item.quantity * item.bake.price | currency : 'NGN'}}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3"></td>
+        <td>
+            <strong> Total : </strong>
+        </td>
+        <td>
+            <strong> {{order.totalPrice | currency : 'NGN'}}</strong>
+        </td>
+    </tr>
+</table>

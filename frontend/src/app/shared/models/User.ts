@@ -5,4 +5,5 @@ export class User{
   token!: string;
   isAdmin!: boolean;
   address: string = '';
+  phone: number[] = [];
 }

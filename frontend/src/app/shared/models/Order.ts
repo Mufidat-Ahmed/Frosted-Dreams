@@ -9,4 +9,5 @@ export class Order{
     CreatedAt!: string;
     status!: string;
     address?: string;
+    phone?: number;
 }
