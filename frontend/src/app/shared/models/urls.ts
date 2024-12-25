@@ -1,4 +1,6 @@
-const BASE_URL = 'http://localhost:5000';
+import { environment } from '../../../environments/environment';
+//const BASE_URL = 'http://localhost:5000';
+export const BASE_URL = environment.baseUrl;
 
 export const DATA_URL = BASE_URL + '/api/data';
 export const SEARCH_URL = (searchTerm: string) => `${DATA_URL}/search/${searchTerm}`;
